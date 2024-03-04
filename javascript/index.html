@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List Written by Allan Spartacus Mangune</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#addTaskModal">Add Task</button>
+        <button class="btn btn-danger" type="button"  onclick="deleteAllTasks()">Clear</button>
+        <button class="btn btn-success" type="button" onclick="sortTask()">Sort</button>
+        <table class="table" id="taskTable">
+            <thead>
+                <tr>
+                    <th scope="col" onclick="sortTask()">Task Name</th>
+                    <th scope="col">Edit/Delete</th>
+                </tr>
+            </thead>
+            <tbody id="taskBody">
+                
+            </tbody>
+        </table>
+        <div class="input-container">
+            <input type="text" class="form-control" id="deleteTaskInput" required>
+            <button class="btn btn-danger" type="button"  onclick="deleteTaskFromInput()">Delete</button>
+        </div>
+        <!-- Add modal -->
+        <div class="modal" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addTaskModalLabel">Add Task</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="taskForm">
+                            <div class="form-group">
+                                <label for="taskName">Name <span class="text-danger">*</span>:</label>
+                                <input type="text" class="form-control" id="taskName" required>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="saveTaskBtn">Save Task</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Edit modal -->
+        <div class="modal" id="editTaskModal" tabindex="-1" role="dialog" aria-labelledby="editTaskModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editTaskModalLabel">Edit Task</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="editTaskForm">
+                            <div class="form-group">
+                                <label for="editTaskName">Name <span class="text-danger">*</span>:</label>
+                                <input type="text" class="form-control" id="editTaskName" required>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="updateTaskBtn">Update Task</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="scripts/store.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
